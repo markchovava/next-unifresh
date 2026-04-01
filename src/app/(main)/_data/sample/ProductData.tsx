@@ -205,4 +205,4 @@ export const ProductData: ProductInterface[] = [
       origin: "USA",
       images: [],
     }
-];
+]; 

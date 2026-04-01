@@ -3,14 +3,15 @@
 import Link from "next/link"
 import ButtonSecondary from "../buttons/ButtonSecondary"
 import TitleTertiary from "../titles/TitleTertiary"
+import { ReactNode } from "react"
 
 
 
 interface PropInterface{
     title: string
-    details: string
-    href: string
-    btnTitle: string
+    details: ReactNode
+    href?: string
+    btnTitle?: string
     image: string
     direction?: 'right' | 'left'
 }
@@ -36,14 +37,19 @@ export default function DoubleSection({
                             <p className="text-xl font-light mb-6">
                                 {details}
                             </p>
-                            <Link href={href}>
-                                <ButtonSecondary 
-                                css="text-blue-800"
-                                name={btnTitle} />
-                            </Link>
+                            {href &&
+                                <Link href={href}>
+                                    <ButtonSecondary 
+                                    css="text-blue-800"
+                                    name={btnTitle} />
+                                </Link>
+                            }
                         </div>
                     <div className="w-full lg:h-130 h-100 bg-gray-300 overflow-hidden rounded-xl drop-shadow">
-                        <img src={image} alt="Image" className="object-cover w-full h-full" />
+                        <img 
+                            src={image} 
+                            alt="Image" 
+                            className="object-cover w-full h-full" />
                     </div>
                     </div>
                 </section>
@@ -53,7 +59,10 @@ export default function DoubleSection({
                 <section className="w-full">
                     <div className="mx-auto container__primary lg:grid-cols-2 grid-cols-1 grid lg:gap-8 gap-10">
                         <div className="w-full lg:h-130 h-100 bg-gray-300 overflow-hidden rounded-xl drop-shadow">
-                            <img src={image} alt="Image" className="object-cover w-full h-full" />
+                            <img 
+                                src={image} 
+                                alt="Image" 
+                                className="object-cover w-full h-full" />
                         </div>
                         <div className="flex flex-col items-start justify-center">
                             <TitleTertiary
@@ -62,11 +71,13 @@ export default function DoubleSection({
                             <p className="text-xl font-light mb-6">
                                 {details}
                             </p>
-                            <Link href={href}>
-                                <ButtonSecondary 
-                                css="text-blue-800"
-                                name={btnTitle} />
-                            </Link>
+                            {href &&
+                                <Link href={href}>
+                                    <ButtonSecondary 
+                                    css="text-blue-800"
+                                    name={btnTitle} />
+                                </Link>
+                            }
                         </div>
                     </div>
                 </section>
@@ -82,14 +93,19 @@ export default function DoubleSection({
                         <p className="text-xl font-light mb-6">
                             {details}
                         </p>
-                        <Link href={href}>
-                            <ButtonSecondary 
-                            css="text-blue-800"
-                            name={btnTitle} />
-                        </Link>
+                        {href &&
+                            <Link href={href}>
+                                <ButtonSecondary 
+                                css="text-blue-800"
+                                name={btnTitle} />
+                            </Link>
+                        }
                     </div>
                     <div className="w-full h-130 bg-gray-300 overflow-hidden rounded-xl drop-shadow">
-                        <img src={image} alt="Image" className="object-cover w-full h-full" />
+                        <img 
+                            src={image} 
+                            alt="Image" 
+                            className="object-cover w-full h-full" />
                     </div>
                     </div>
                 </section>

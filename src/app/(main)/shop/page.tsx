@@ -1,9 +1,10 @@
-import BreadCrumbs from '../_components/breadcrumbs/BreadCrumbs'
 import SpacerDefault from '../_components/spacers/SpacerDefault'
 import CarousePrimary from '../_components/carousels/CarouselPrimary'
 import { ProductTypeData } from '../_data/sample/ProductTypeData'
 import ShopAside from '../_components/asides/ShopAside'
 import ShopMainSection from './_components/ShopMainSection'
+import PageTitle from '../_components/titles/PageTitle'
+
 
 
 
@@ -12,14 +13,17 @@ const CrumbsData = [
     {id: 2, name: 'Shop', href: '/contashop'},
 ]
 
+
 export default function page() {
   return (
     <>
     <main className='w-full bg-gray-50'>
-        <BreadCrumbs data={CrumbsData} />
+        
+        <PageTitle
+            crumbs={CrumbsData} 
+            title='Our Shop' />
     
         <div className="mx-auto container__primary">
-        <SpacerDefault />
         <CarousePrimary data={ProductTypeData} />
         <SpacerDefault />
         </div>

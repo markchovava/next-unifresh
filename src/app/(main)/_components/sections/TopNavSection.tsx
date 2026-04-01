@@ -5,7 +5,6 @@ import { LinkMainNavInterface } from '../../_data/entities/LinkMainNavEntity'
 import { useEffect } from 'react'
 import { LinkMainNavData, LinkMainTwoCategoryData } from '../../_data/sample/LinkMainNavData'
 import IconDefault from '@/_components/icons/IconDefault'
-import { AnimatePresence, motion } from 'motion/react'
 import TopNavItem from '../navs/TopNavItem'
 
 
@@ -36,7 +35,10 @@ export default function TopNavSection() {
         <div className='container__primary flex items-center justify-between'>
             <ul className='flex items-center justify-start gap-2 font-medium text-gray-800'>
                 {navList.map((i, key) => (
-                    <TopNavItem key={key} data={i} onClick={() => handleClick(i)} />
+                    <TopNavItem 
+                        key={key} 
+                        data={i} 
+                        onClick={() => handleClick(i)} />
                 ))}   
             </ul>
 

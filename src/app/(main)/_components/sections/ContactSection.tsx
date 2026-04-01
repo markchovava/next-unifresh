@@ -14,7 +14,7 @@ export default function ContactSection() {
     <div className="container__primary mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-8 gap-12">
         <div className="">
             <TitleSecondary 
-                name='Contact Us' 
+                name='Talk to us' 
                 css="mb-6" 
             />
             <ContactForm />

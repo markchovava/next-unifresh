@@ -1,6 +1,5 @@
-import BreadCrumbs from '../_components/breadcrumbs/BreadCrumbs'
-import BannerSecondary from '../_components/banners/BannerSecondary'
 import ContactPage from './_components/ContactPage'
+import PageTitle from '../_components/titles/PageTitle'
 
 
 
@@ -12,13 +11,14 @@ const CrumbsData = [
 export default function page() {
   return (
     <>
-    <BannerSecondary name='Contact Us' />
-    
     <div className='bg-gray-50'>
-        <BreadCrumbs data={CrumbsData} />
-        <ContactPage />
+      <PageTitle 
+          crumbs={CrumbsData} 
+          title='Contact Us' />
+      
+      <ContactPage />
     </div>
-
+    
     </>
   )
 }

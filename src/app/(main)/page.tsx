@@ -1,7 +1,6 @@
 import SpacerDefault from "@/_components/spacers/SpacerDefault";
 import BannerMain from "./_components/banners/BannerMain";
 import CarousePrimary from "./_components/carousels/CarouselPrimary";
-import HeaderDefault from "./_components/headers/HeaderDefault";
 import { ProductCategoryData } from "./_data/sample/ProductCategoryData";
 import { ProductTypeData } from "./_data/sample/ProductTypeData";
 import CardMain from "./_components/cards/CardMain";
@@ -18,7 +17,11 @@ import StickerPrimary from "./_components/stickers/StickerPrimary";
 import TitleDefault from "./_components/titles/TitleDefault";
 import ButtonTertiary from "./_components/buttons/ButtonTertiary";
 import ContactSection from "./_components/sections/ContactSection";
-import Footer from "./_components/footers/Footer";
+import CarouseProduct from "./_components/carousels/CarouselProduct";
+import { ProductData } from "./_data/sample/ProductData";
+import SpacerSecondary from "./_components/spacers/SpacerSecondary";
+
+
 
 
 export default function Home() {
@@ -35,9 +38,19 @@ export default function Home() {
     <section className="w-full bg-gray-50">
       <div className="mx-auto container__primary">
         <SpacerDefault />
+        <TitleSecondary name='Latest Products' css='mb-3 text-blue-900' />
         <CarousePrimary data={ProductTypeData} />
         <SpacerDefault />
       </div>
+    </section>
+
+    <section>
+      <SpacerDefault />
+      <div className="container__primary">
+        <TitleSecondary name='Latest Products' css='mb-3 text-blue-900' />
+        <CarouseProduct data={ProductData} />
+      </div>
+      <SpacerDefault />
     </section>
 
     <SpacerDefault />

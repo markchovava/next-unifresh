@@ -3,7 +3,7 @@
 
 interface PropInterface{
     name: string
-    css: string
+    css?: string
 }
 
 export default function TitleDefault({name, css='mb-6'}: PropInterface) {

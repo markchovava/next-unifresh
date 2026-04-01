@@ -1,1 +1,1 @@
-export const NoImage = '/assets/img/no_photo.jpg'
+export const NoImage = '/assets/images/no_photo.jpg'

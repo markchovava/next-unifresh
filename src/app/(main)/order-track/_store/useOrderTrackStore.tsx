@@ -1,33 +1,48 @@
 "use client"
 
 import { create } from "zustand"
-import { CheckoutEntity, CheckoutInterface } from "../_data/entities/CheckoutEntity"
- 
+import { OrderEntity, OrderInterface } from "../_data/entities/OrderEntity"
+import { ChangeEvent } from "react"
 
 interface PropInterface{
-    data: CheckoutInterface,
-    isLoading: boolean,
-    isSubmitting: boolean,
-    errors: CheckoutInterface
-    setData: (i: CheckoutInterface) => void
+    search: string
+    data: OrderInterface
+    isLoading: boolean
+    isSubmitting: boolean
+    errors: OrderInterface
+    isSearching: boolean
+    setIsSearching: (i: boolean) => void
+    setData: (i: OrderInterface) => void
+    setSearch: ( e: React.ChangeEvent<HTMLInputElement> ) => void
     setInputValue: (
-        e: React.ChangeEvent<HTMLInputElement> | 
-        React.ChangeEvent<HTMLTextAreaElement> |
-        React.ChangeEvent<HTMLSelectElement>
+        e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => void
     resetData: () => void
     clearErrors: () => void
     validateField: (name: string, value: string) => string,
-    validateForm: () => { isValid: boolean; errors: CheckoutInterface },
+    validateForm: () => { isValid: boolean; errors: OrderInterface },
 }
 
 
-export const useCheckoutStore = create<PropInterface>((set, get) => ({
-    data: CheckoutEntity,
+export const useOrderTrackStore = create<PropInterface>((set, get) => ({
+    search: '',
+    data: OrderEntity,
     isLoading: true,
     isSubmitting: false,
-    errors: CheckoutEntity,
+    errors: OrderEntity,
+    isSearching: false,
+    setIsSearching: (i) => {
+        set({
+            isSearching: i
+        })
+    },
     setData: (i) => {},
+    setSearch: (e) => {
+        const {name, value} = e.target
+        set({
+            search: value
+        })
+    },
     setInputValue: (e) => {
         const { name, value } = e.target;
         const currentData = get().data;
@@ -48,9 +63,9 @@ export const useCheckoutStore = create<PropInterface>((set, get) => ({
     validateField: (name, value) => {
         let error = ""
         switch(name){
-            case "name":
+            case "orderRef":
                 if(!value.trim()){
-                    error = "Name is required.";
+                    error = "orderRef is required.";
                 } 
                 break;
             default:
@@ -60,12 +75,12 @@ export const useCheckoutStore = create<PropInterface>((set, get) => ({
     },
     validateForm: () => { 
         const { data } = get();
-        let errors = { ...CheckoutEntity };
+        let errors = { ...OrderEntity };
         let hasError = false;
         // Validate NAME
-        const nameError = get().validateField("name", data.name);
-        if (nameError) {
-            errors.name = nameError;
+        const orderRefError = get().validateField("orderRef", data.orderRef);
+        if (orderRefError) {
+            errors.orderRef = orderRefError;
             hasError = true;
         }      
         

@@ -10,6 +10,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Link from 'next/link';
+import ProductCard from '../cards/ProductCard';
+import { NoImage } from '@/_data/sample/NoImage';
 
 
 interface SwiperRefType {
@@ -22,7 +24,7 @@ interface PropInterface{
 }
 
 
-export default function CarousePrimary({ data }: PropInterface) {
+export default function CarouseProduct({ data }: PropInterface) {
     const [windowWidth, setWindowWidth] = useState<number>(0);
     const swiperRef = useRef<SwiperRefType | null>(null);
     const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -75,10 +77,13 @@ export default function CarousePrimary({ data }: PropInterface) {
         {/* slides */}
         { data && data.map((i, key) => (
           <SwiperSlide key={key} className='p-2'>
-              <CarouselItem 
-                image={`/assets/images/no_photo.jpg`}
-                href={i.href}
-                name={i.name}
+              <ProductCard 
+                id={i.id}
+                category={i.category}
+                name={i.category}
+                price={i.price}
+                image={i.images.length ? i.images[0] : NoImage}
+                status={i.status}
               />
           </SwiperSlide>
         ))}

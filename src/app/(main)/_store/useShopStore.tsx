@@ -14,9 +14,7 @@ interface PropInterface{
     setProductList: (i: ProductInterface[]) => void
     setSortValue: (e: React.ChangeEvent<HTMLSelectElement>) => void
     setInputValue: (
-        e: React.ChangeEvent<HTMLInputElement> | 
-        React.ChangeEvent<HTMLTextAreaElement> |
-        React.ChangeEvent<HTMLSelectElement>
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => void
     setIsSearching: (i: boolean) => void
 }

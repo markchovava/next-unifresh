@@ -6,7 +6,7 @@ import { ProductTypeData } from "./ProductTypeData";
 export const LinkFooterNavData: LinkMainNavInterface[] = [
     {id: 1, name: 'Home', href: '/', isOpen: false, items: []},
     {id: 2, name: 'Our Shop', href: '/shop', isOpen: false, items: []},
-    {id: 3, name: 'About Us', href: '', isOpen: false, items: []},
+    {id: 3, name: 'About Us', href: '/about', isOpen: false, items: []},
     {id: 4, name: 'Products', href: '', isOpen: false, items: ProductTypeData},
     {id: 5, name: 'Contact Us', href: '/contact', isOpen: false, items: []},
 ]
@@ -14,7 +14,7 @@ export const LinkFooterNavData: LinkMainNavInterface[] = [
 export const LinkMainNavData: LinkMainNavInterface[] = [
     {id: 1, name: 'Home', href: '/', isOpen: false, items: []},
     {id: 2, name: 'Our Shop', href: '/shop', isOpen: false, items: []},
-    {id: 3, name: 'About Us', href: '', isOpen: false, items: []},
+    {id: 3, name: 'About Us', href: '/about', isOpen: false, items: []},
     {id: 4, name: 'Categories', href: '', isOpen: false, items: ProductCategoryData},
     {id: 5, name: 'Products', href: '', isOpen: false, items: ProductTypeData},
     {id: 6, name: 'Contact Us', href: '/contact', isOpen: false, items: []},
